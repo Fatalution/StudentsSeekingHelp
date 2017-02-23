@@ -8,24 +8,38 @@ session_start();
 $email = $_POST['email'];
 $password = $_POST['password'];
 
-// Run a query to find the user in the database
-//$sql = "SELECT * FROM users
-  //      WHERE Email = '$email' AND Password = '$password'";
-$sql = "SELECT * FROM user WHERE Email = '$email' AND Password = '$password'";
-
+// Decrypt the entered password
+$sql = "SELECT * FROM user WHERE Email = '$email'"; 
 $result = mysqli_query($conn, $sql);
+$row = mysqli_fetch_assoc($result);
+$hashPassword = $row['Password'];
+$hash = password_verify($password, $hashPassword);
 
-// If the user is found in the database
-if(!$row = mysqli_fetch_assoc($result))
+// If the passwords don't match 
+if($hash == 0)
 {
-  echo "Your username or password is incorrect!";
+  header("Location: ../login.php?error=incorrectpass");
+  exit();
 }
 
-// If the user is found in the database
-else
-{ 
-  $_SESSION['ID'] = $row['ID'];
-  echo "You are logged in!";
+// If they do match
+else 
+{
+  $sql = "SELECT * FROM user WHERE Email = '$email' AND Password = '$hashPassword'"; 
+  $result = mysqli_query($conn, $sql);
+
+  // If the user is not found in the database
+  if(!$row = mysqli_fetch_assoc($result))
+  {
+    header("Location: ../login.php?error=incorrectpass");
+    exit();
+  }
+
+  // If the user is found in the database
+  else
+  { 
+    $_SESSION['ID'] = $row['ID'];
+  }
 }
 
 // Go back to the login page

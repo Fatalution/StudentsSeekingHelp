@@ -10,6 +10,14 @@
 </head>
 
 <body>
+    <?php
+      $url = "http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
+      if(strpos($url, 'error=incorrectpass') !== false)
+      {
+        echo "Incorrect username or password";
+      }
+    ?>
+    
     <p> Login </p>
     <form action="includes/login.inc.php" method="POST">
     Email: <br>
