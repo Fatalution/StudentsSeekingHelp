@@ -8,6 +8,7 @@ $email = $_POST['email'];
 $password = $_POST['password'];
 $uniYear = $_POST['uniYear'];
 $confirmPassword = $_POST['confirmPassword'];
+$programme = $_POST['programme'];
 
 // ERROR HANDLING  
 
@@ -23,6 +24,11 @@ else if(empty($password))
   exit();
 }
 else if(empty($uniYear))
+{
+  header("Location: ../signup.php?error=empty");
+  exit();
+}
+else if(empty($programme))
 {
   header("Location: ../signup.php?error=empty");
   exit();
@@ -62,8 +68,8 @@ if(strlen($email) <= 17 or substr($email, -17) != "@manchester.ac.uk")
 else
 {
   $encryptedPassword = password_hash($password, PASSWORD_DEFAULT);
-  $sql = "INSERT INTO user (Email, Password, Year)
-        VALUES ('$email', '$encryptedPassword', '$uniYear')";
+  $sql = "INSERT INTO user (Email, Password, Year, Course_type)
+        VALUES ('$email', '$encryptedPassword', '$uniYear', '$programme')";
   $result = mysqli_query($conn, $sql);
 }
 

@@ -40,13 +40,21 @@
 
     <form action="includes/signup.inc.php" method="POST">
     Email: <br>
-    <input type="email" name="email"><br>
+    <input type = "email" name = "email"><br>
     Password: <br>
-    <input type="password" name="password"><br>
+    <input type = "password" name = "password"><br>
     Confirm password: <br>
-    <input type="password" name="confirmPassword"><br>
+    <input type = "password" name = "confirmPassword"><br>
     Year in university: <br>
-    <input type="number" min="1" max="4" name="uniYear"><br>
+    <input type = "number" min = "1" max ="4" name="uniYear"><br>
+    Course type: <br> 
+    <input list="programmes" name = "programme">
+    <datalist id="programmes">
+      <option value="Computer Science">
+      <option value="Computer Sceince and Mathematics">
+      <option value="Computer Science and Business">
+      <option value="Human Computer Interaction">
+    </datalist> 
     <input type="submit" value="Sign up">
     </form>
 
