@@ -1,3 +1,7 @@
+<?php 
+  session_start();
+?> 
+
 <!DOCTYPE html>
 <html>
 
@@ -8,15 +12,15 @@
 <body>
   <h1><a href="http://www.homepageforssh.com/">&ltSSH&gt</a></h1>
     <p> Sign up </p>
-    <form action="www.somewhere.com" method="get">
+    <form action="signup.php" method="POST">
     Email: <br>
-    <input type="email" name="Email"><br>
+    <input type="email" name="email"><br>
     Password: <br>
-    <input type="password" name="Password"><br>
+    <input type="password" name="password"><br>
     Confirm password: <br>
-    <input type="password" name="Confirm Password"><br>
+    <input type="password" name="confirmPassword"><br>
     Year in university: <br>
-    <input type="number" min="1" max="4" name="Year in university"><br>
+    <input type="number" min="1" max="4" name="uniYear"><br>
     <input type="submit" value="Sign up">
     </form>
 </body>
