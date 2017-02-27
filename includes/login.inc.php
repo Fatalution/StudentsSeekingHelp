@@ -5,8 +5,8 @@ include '../dbh.php';
 session_start();
 
 // Take the values entered by the user
-$email = $_POST['email'];
-$password = $_POST['password'];
+$email = mysqli_real_escape_string($conn, $_POST['email']);
+$password = mysqli_real_escape_string($conn, $_POST['password']);
 
 // Decrypt the entered password
 $sql = "SELECT * FROM user WHERE Email = '$email'"; 
@@ -39,8 +39,13 @@ else
   else
   { 
     $_SESSION['ID'] = $row['ID'];
+    $_SESSION['Email'] = $row['Email'];
+    $_SESSION['Admin'] = $row['Admin'];
+    $_SESSION['Course_type'] = $row['Course_type'];
+    $_SESSION['Name'] = $row['Name'];
+    $_SESSION['Surname'] = $row['Surname'];
   }
 }
 
 // Go back to the login page
-header("Location: ../login.php");
+header("Location: profile_page.php");

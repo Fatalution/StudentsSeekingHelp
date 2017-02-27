@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.6.4
+-- version 4.6.5.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 23, 2017 at 04:52 PM
--- Server version: 5.7.14
--- PHP Version: 5.6.25
+-- Generation Time: Feb 28, 2017 at 12:37 AM
+-- Server version: 10.1.21-MariaDB
+-- PHP Version: 5.6.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -54,15 +54,17 @@ CREATE TABLE `user` (
   `Email` text NOT NULL,
   `Password` text NOT NULL,
   `Admin` tinyint(1) NOT NULL DEFAULT '0',
-  `Course_type` varchar(200) NOT NULL
+  `Course_type` varchar(200) NOT NULL,
+  `Name` text NOT NULL,
+  `Surname` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`ID`, `Email`, `Password`, `Admin`, `Course_type`) VALUES
-(1, 'ivandrej@gmail.com', '1234', 0, '');
+INSERT INTO `user` (`ID`, `Email`, `Password`, `Admin`, `Course_type`, `Name`, `Surname`) VALUES
+(1, 'andrej.ivanov@manchester.ac.uk', '$2y$10$NQNhTwRg/C98lrpo9inrj.aHFU5MVEk7Bv6Q7TGmikPKU8ASM7V0O', 0, 'Computer Science', 'Andrej', 'Ivanov');
 
 --
 -- Indexes for dumped tables

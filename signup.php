@@ -39,6 +39,10 @@
     <p> Sign up </p>
 
     <form action="includes/signup.inc.php" method="POST">
+    First name: <br> 
+    <input type = "text" name = "name"><br>
+    Last name: <br> 
+    <input type = "text" name = "surname"><br>
     Email: <br>
     <input type = "email" name = "email"><br>
     Password: <br>
