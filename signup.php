@@ -7,6 +7,7 @@
 
 <head>
   <title>&ltSSH-Students Seeking Help&gt</title>
+  <link rel="stylesheet" href="css/signup.css">
 </head>
 
 <body>

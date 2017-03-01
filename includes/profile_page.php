@@ -11,11 +11,16 @@ $course = $_SESSION['Course_type'];
 $name = $_SESSION['Name'];
 $surname = $_SESSION['Surname'];
 
-echo "This is your profile page" . "<br>";
-echo "Your name is : " . $name . "<br>";
-echo "Your surname is : " . $surname . "<br>";
-echo "Your database ID is: " . $ID . "<br>";
-echo "Your email is: " . $email . "<br>";
-echo ($isAdmin) ? "You are an admin" : "You are not an admin" . "<br>";
-echo "Your course is : " . $course . "<br>";
+?> 
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title> Profile page </title>
+</head>
+
+<body>
+  This is 
+</body>
+</html>
 
