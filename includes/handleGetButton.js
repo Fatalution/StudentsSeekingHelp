@@ -1,11 +1,19 @@
-function getHelp()
-{
-  // Create a request object
-  var xhttp = new XMLHttpRequest();
-
-  // Send the request to the php 
-  xhttp.open("GET", "get.php", true);
-  xhttp.send();
-
-  alert("Request sent");
+$( document ).ready(function() {
+ function getHelp() {
+ var id = document.getElementById('#getId').value;
+ console.log("id is " + id);
+ 
+ $.ajax({
+  type: 'post',
+  url : 'get.php',
+  data : {
+    lab_id : id,
+  },
+  succes: function(response){
+  $('#response').html(response);
+  }
+  })
+ 
 }
+document.getElementById("getHelp1").addEventListener("click",getHelp);
+});

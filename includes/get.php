@@ -4,11 +4,14 @@ include '../dbh.php';
 session_start();
 
 // Get the lab and user ID from the session
-$labID = $_SESSION['labID'];
+$labID = $_POST['lab_id'];
 $userID = $_SESSION['ID'];
 
+echo "<script>console.log( 'Debug Objects: " . $labID . "' );</script>";
+echo "<script>console.log( 'Debug Objects: " . $userID. "' );</script>";
 // Insert the request in the database
 $sql = "INSERT INTO help_requests (user_id, lab_id)
         VALUES ('$userID', '$labID')";
 $result = mysqli_query($conn, $sql);
+echo "<script>console.log( 'Debug Objects: " . $result . "' );</script>";
 ?>

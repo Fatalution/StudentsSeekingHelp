@@ -4,14 +4,13 @@ include '../dbh.php';
 session_start();
 
 // Obtain the information the user entered
-$email = mysqli_real_escape_string($conn, $_POST['email']);
 $password = mysqli_real_escape_string($conn, $_POST['password']);
-$uniYear = $_POST['uniYear'];
+$email = $_POST['email'];
+$uniYear =  mysqli_real_escape_string($conn, $_POST['uniYear']);
+$programme =mysqli_real_escape_string($conn, $_POST['programme']);
+$name = mysqli_real_escape_string($conn, $_POST['name']);
+$surname =mysqli_real_escape_string($conn, $_POST['surname']);
 $confirmPassword = mysqli_real_escape_string($conn, $_POST['confirmPassword']);
-$programme = $_POST['programme'];
-$name = $_POST['name'];
-$surname = $_POST['surname'];
-
 // ERROR HANDLING  
 
 // Check if any of the fields is empty
@@ -53,7 +52,7 @@ else if($password != $confirmPassword)
   exit();
 }
 
-// Check if the email already exists
+// Check if the username already exists
 $sql = "SELECT Email FROM user WHERE Email = '$email'";
 $result = mysqli_query($conn, $sql);
 $emailCheck = mysqli_num_rows($result);
@@ -64,14 +63,14 @@ if($emailCheck > 0)
   exit();	
 }
 
-// Check if the email format is valid
+// Check if the username format is valid
 if(filter_var($email, FILTER_VALIDATE_EMAIL) == FALSE)
 {
   header("Location: ../signup.php?error=emailformat");
   exit();
 }
 
-// Check if it has the prefix of an UoM email
+// Check if it has the prefix of an UoM username
 if(strlen($email) <= 17 or substr($email, -17) != "@manchester.ac.uk")
 {
   header("Location: ../signup.php?error=manchesteremail");
@@ -81,20 +80,20 @@ if(strlen($email) <= 17 or substr($email, -17) != "@manchester.ac.uk")
 /*
 echo strtolower($name);
 echo strtolower($surname);
-echo $email;
-echo strpos($email, strtolower($name));
-// Check if the name and surname are found in the email
-if(strpos($email, strtolower($name)) !== True or strpos($email, strtolower($surname)) !== True)
+echo $username;
+echo strpos($username, strtolower($name));
+// Check if the name and surname are found in the username
+if(strpos($username, strtolower($name)) !== True or strpos($username, strtolower($surname)) !== True)
 {
-  header("Location: ../signup.php?error=manchesteremail");
+  header("Location: ../signup.php?error=manchesterusername");
   exit(); 
 } */ 
 
 else
 {
   $encryptedPassword = password_hash($password, PASSWORD_DEFAULT);
-  $sql = "INSERT INTO user (Email, Password, Admin, Course_type, Name, Surname)
-          VALUES ('$email', '$encryptedPassword', 0, '$programme', '$name', '$surname')";
+  $sql = "INSERT INTO user (username, Password, Admin, Course_type, Name, Surname)
+          VALUES ('$username', '$encryptedPassword', 0, '$programme', '$name', '$surname')";
   $result = mysqli_query($conn, $sql);
 }
 

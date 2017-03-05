@@ -14,13 +14,13 @@ session_start();
   <!-- Latest compiled and minified CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
-  <script
-  src="https://code.jquery.com/jquery-3.1.1.min.js"
-  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
-  crossorigin="anonymous"></script>
+ <!-- javascript -->
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
   <!-- Latest compiled and minified JavaScript -->
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+ 
 </head>
 
 <body>
@@ -39,31 +39,55 @@ session_start();
 
   		 // For each lab
   		 while ($row = mysqli_fetch_assoc($result))
-  		 {
-  		 	$labID = $row['id'];
-  		 	$_SESSION['labID'] = $labID;
-       ?>
-  		   <input type="text" name="getId" id="<?php  echo $_SESSION['labID'];?>" />
+  		 {    
+
+      		 	$labID = $row['id'];
+            ?>
+            <div>
+              <p id='response'></p> 
+              <p class = 'lead'>  Topic :  <?php echo $row['topic']; ?> </p>
+              <p> Date: <?php echo $row['date'] ?></p>
+              <p> Description: <?php echo $row['lab_description'] ?> </p>
+              <form method = 'POST'>
+                <div class = 'btn-group'>
+                  <button name = 'Get Help' id="get" class="getHelp1" type ="button" class ='btn btn-primary' value =' <?php echo $labID;?>' > Get Help </button>
+                  <button name = 'Give Help' id="give" class="giveHelp" type = 'button'  class = 'btn btn-primary' value =' <?php echo $labID;?>'> Give Help </button>
+                </div>
+              </form>
+            </div>
        <?php
-  		 	echo "<div class = 'well well-sm'>";
+       }
+     ?>
 
-  		 	echo "<p class = 'lead'>" . " Topic: " . $row['topic'] . "</p>";
-  		 	echo "<p> Date: " . $row['date'] . "</p>";
-  		 	echo "<p> Description: " . $row['lab_description'] . "</p>";
+  <script>
+   $( document ).ready(function() {
+ function getHelp(lab_id) {
+ id = lab_id;
+ console.log("asd" + id);
+ $.ajax({
+  type: 'post',
+  url : 'get.php',
+  data : {
+    lab_id : id,
+  },
+  succes: function(response){
+  $('#response').html(response);
+  }
+  })
+ 
+}
+$("button").click(function(){
+var fired_button = $(this).val();
+if (($(this)).attr("id")== "get")
+{
+getHelp(fired_button);
+}
 
-  		 	echo "<form method = 'GET'>";
-  		 	echo "<div class = 'btn-group'>";
-  		 	echo "<button name = 'Get Help' type = 'button' onclick = 'getHelp()' class = 'btn btn-primary'> Get Help </button>";
-  		 	echo "<button name = 'Give Help' type = 'button' onclick = 'giveHelp()' class = 'btn btn-primary'> Give Help </button>";
-  		 	echo "</div>";
-  		 	echo "</form>";
 
-  		 	echo "</div>";
-  		 }
-      ?>
-  </div>
+});
+});
 
-  <script src="handleGetButton.js"></script>
-  <script src="handleGiveButton.js"></script>
+
+  </script>
 </body>
 </html>
