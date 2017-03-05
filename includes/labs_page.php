@@ -42,8 +42,9 @@ session_start();
   		 {
   		 	$labID = $row['id'];
   		 	$_SESSION['labID'] = $labID;
-
-  		    echo $_SESSION['labID'];
+       ?>
+  		   <input type="text" name="getId" id="<?php  echo $_SESSION['labID'];?>" />
+       <?php
   		 	echo "<div class = 'well well-sm'>";
 
   		 	echo "<p class = 'lead'>" . " Topic: " . $row['topic'] . "</p>";
