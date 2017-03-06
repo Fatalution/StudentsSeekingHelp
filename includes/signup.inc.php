@@ -92,8 +92,8 @@ if(strpos($username, strtolower($name)) !== True or strpos($username, strtolower
 else
 {
   $encryptedPassword = password_hash($password, PASSWORD_DEFAULT);
-  $sql = "INSERT INTO user (username, Password, Admin, Course_type, Name, Surname)
-          VALUES ('$username', '$encryptedPassword', 0, '$programme', '$name', '$surname')";
+  $sql = "INSERT INTO user (Email, Password, Admin, Course_type, Name, Surname)
+          VALUES ('$email', '$encryptedPassword', 0, '$programme', '$name', '$surname')";
   $result = mysqli_query($conn, $sql);
 }
 
