@@ -49,7 +49,7 @@ session_start();
               <p> Date: <?php echo $row['date'] ?></p>
               <p> Description: <?php echo $row['lab_description'] ?> </p>
               <form method = 'POST'>
-                <div class = 'btn-group'>
+                <div class = 'btn-group' id = 'buttonGroup'>
                   <button name = 'Get Help' id="get" class="getHelp1" type ="button" class ='btn btn-primary' value =' <?php echo $labID;?>' > Get Help </button>
                   <button name = 'Give Help' id="give" class="giveHelp" type = 'button'  class = 'btn btn-primary' value =' <?php echo $labID;?>'> Give Help </button>
                 </div>
@@ -61,30 +61,66 @@ session_start();
 
   <script>
    $( document ).ready(function() {
- function getHelp(lab_id) {
- id = lab_id;
- console.log("asd" + id);
- $.ajax({
-  type: 'post',
-  url : 'get.php',
-  data : {
-    lab_id : id,
-  },
-  succes: function(response){
-  $('#response').html(response);
-  }
-  })
+
+     // Method called when the get help is pressed
+     function getHelp(lab_id) {
+       var id = lab_id;
+       //console.log("asd" + id);
+       $.ajax({
+         type: 'post',
+         url : 'get.php',
+         data : {
+           lab_id : id,
+         },
+         success: function(response){
+          $('#response').html(response);
+        }
+      })
+     }
  
-}
-$("button").click(function(){
-var fired_button = $(this).val();
-if (($(this)).attr("id")== "get")
-{
-getHelp(fired_button);
-}
+     // Method called when the give help is pressed 
+     function giveHelp(lab_id) {
+       var id = lab_id;
 
+       $.ajax({
+         type: 'post',
+         url : 'give.php',
+         data : {
+           lab_id : id,
+         },
+         success: function(response){
+          $('#response').html(response);
+        }
+      })
+     }
+ 
 
-});
+  // Action listener for the button
+  $("button").click(function(){
+    var id = $(this).val();
+
+    // If the user pressed the get help button
+    if (($(this)).attr("id")== "get")
+    {
+      getHelp(id);
+      alert("Help requested successfully");
+
+      /*
+      document.getElementById("get").disabled = true;
+      document.getElementById("give").disabled = true;*/
+    }
+
+    // If the user pressed the give help button
+    else if (($(this)).attr("id")== "give")
+    {
+      giveHelp(id);
+      alert("You requested to give help successfully");
+
+      /*
+      document.getElementById("get").disabled = true;
+      document.getElementById("give").disabled = true; */
+    }
+  }); 
 });
 
 
