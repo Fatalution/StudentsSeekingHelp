@@ -65,13 +65,7 @@
       </div>
     </div>
 
-    <?php
-    if(isset($_SESSION['ID']))
-      //echo $_SESSION['ID'];
-    else
-      //echo "You are not logged in";
-    ?>
-
+    
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
