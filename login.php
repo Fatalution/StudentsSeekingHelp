@@ -34,39 +34,44 @@
       }
     ?>
 
-    <div class="site-wrapper">
-      <div class="site-wrapper-inner">
-        <div class="cover-container">
-          <div class="panel panel-success">
-            <div class="panel heading">Login</div>
-            <div class="panel body fixed-panel">
-              <form action="includes/login.inc.php" method="POST">
-                Email:<br>
-                <input type="email" name="email"><br>
-                Password:<br>
-                <input type="password" name="password"><br>
-                <input type="submit" class="btn btn-primary btn-lg" value="Login"><br>
+    <div class="container">
+      <div class="row">
+        <div class="Absolute-Center is-Responsive">
+          <div id="logo-container"></div>
+          <div class="col-sm-12 col-md-10 col-md-offset-1">
+            <form action="includes/login.inc.php" method="POST" id="loginForm">
+              <div class="form-group input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+                <input class="form-control" type="email" name='email' placeholder="email"/>
+              </div>
+              <div class="form-group input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                <input class="form-control" type="password" name='password' placeholder="password"/>
+              </div>
+              <div class="form-group">
+                <button type="submit" value="Login" class="btn btn-def btn-block">Login</button>
+              </div>
+              Don't have an account ? <br>
+              Join the community:<br>
+              <div class="form-group">
+                <button type="button" class="btn btn-def btn-block"><a href="signup.php">Sign up</a></button>
+              </div>
+              <form action="includes/logout.inc.php">
+       	        <button type="button" class="btn btn-def btn-block">Log out</button><br>
               </form>
-
-            <?php
-            if(isset($_SESSION['ID']))
-              echo $_SESSION['ID'];
-            else
-      	      echo "You are not logged in";
-            ?>
-
-            Don't have an account ? <br>
-            Sign up here:<br>
-            <button type="button" class="btn btn-primary btn-lg"><a href="signup.php">&ltSIGN UP&gt</a></button>
-            <form action="includes/logout.inc.php">
-     	        <button type="button" class="btn btn-primary btn-lg">LOG OUT</button><br>
             </form>
           </div>
         </div>
       </div>
     </div>
-  </div>
-</div>
+
+    <?php
+    if(isset($_SESSION['ID']))
+      echo $_SESSION['ID'];
+    else
+      echo "You are not logged in";
+    ?>
+
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
