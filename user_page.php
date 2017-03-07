@@ -37,10 +37,7 @@ session_start();
     <div class ="header" style="padding-top:100px;">
         <div class ="row">
 
-            <div class="col-md-9 pull-right">
-            <p>asdasdasdasd</p>
-            <p>asdasdasd</p>
-            <p>sqewe wq wer wer ewr </p>
+           
 
             </div>
 
@@ -84,8 +81,7 @@ session_start();
                       //$_SESSION['course'] = $row['Name'];
                       $courseName = $row['Name'];
                       //echo $courseName;
-                      echo "<a href='includes/labs_page.php?courseType=<?php echo $courseName; ?>' class='list-group-item'>". $row['Name'] .
-                           "</a>";
+                      echo "<a class='list-group-item' href='includes/labs_page.php?courseType=".$courseName."'>". $row['Name'] . "</a>";
                     }
                   ?>
                 </div>

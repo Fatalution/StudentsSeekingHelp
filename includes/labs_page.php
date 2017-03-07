@@ -28,8 +28,8 @@ session_start();
     <div class = "page-header">
       <?php
         // Obtain the name of the course
-        //$course = $_GET['courseType'];
-        $course = "COMP16121";
+        $course = $_GET['courseType'];
+        //$course = "COMP16121";
         //echo $course;
         echo "<h1 class = 'lead text-center'>" . "Your labs and lectures for " . $course . "</h1> <br>";
       ?>
