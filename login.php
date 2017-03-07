@@ -56,16 +56,19 @@
               <div class="form-group">
                 <button type="button" class="btn btn-def btn-block"><a href="signup.php">Sign up</a></button>
               </div>
-              <form action="includes/logout.inc.php">
-       	        <button type="button" class="btn btn-def btn-block">Log out</button><br>
-              </form>
             </form>
           </div>
         </div>
       </div>
     </div>
 
-    
+    <?php
+    /*if(isset($_SESSION['ID']))
+      //echo $_SESSION['ID'];
+    else
+      //echo "You are not logged in";*/
+    ?>
+
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->

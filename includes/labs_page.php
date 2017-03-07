@@ -28,8 +28,9 @@ session_start();
     <div class = "page-header">
       <?php
         // Obtain the name of the course
-        $course = $_GET['courseType'];
-        echo $course;
+        //$course = $_GET['courseType'];
+        $course = "COMP16121";
+        //echo $course;
         echo "<h1 class = 'lead text-center'>" . "Your labs and lectures for " . $course . "</h1> <br>";
       ?>
     </div>
@@ -44,7 +45,7 @@ session_start();
 
       		 	$labID = $row['id'];
             ?>
-            <div>
+            <div class = "well">
               <p id='response'></p> 
               <p class = 'lead'>  Topic :  <?php echo $row['topic']; ?> </p>
               <p> Date: <?php echo $row['date'] ?></p>

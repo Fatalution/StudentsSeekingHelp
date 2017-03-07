@@ -95,12 +95,13 @@
             <div class="form-group">
               <button type="submit" value="Sign up" class="btn btn-def btn-block">Sign up</button>
             </div>
-            Already a member?
+          </form>
+          Already a member?
             Login here:
-            <div class="form-group">
+            <div>
               <button type="button" class="btn btn-def btn-block"><a href="login.php">Log in</a></button>
             </div>
-          </form>
+
         </div>
       </div>
     </div>
