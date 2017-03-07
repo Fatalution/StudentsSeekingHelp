@@ -48,4 +48,4 @@ else
 }
 
 // Go back to the login page
-header("Location: labs_page.php");
+header("Location: ../user_page.php");

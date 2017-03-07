@@ -28,13 +28,14 @@ session_start();
     <div class = "page-header">
       <?php
         // Obtain the name of the course
-        $course = "COMP16112"; 
+        $course = $_GET['courseType'];
+        echo $course;
         echo "<h1 class = 'lead text-center'>" . "Your labs and lectures for " . $course . "</h1> <br>";
       ?>
     </div>
     <?php
-         // Get all the labs from the course
-         $sql = " SELECT * FROM labs WHERE course_id = '$course' "; 
+       // Get all the labs from the course
+       $sql = " SELECT * FROM labs WHERE course_id = '$course' "; 
   		 $result = mysqli_query($conn, $sql);
 
   		 // For each lab
