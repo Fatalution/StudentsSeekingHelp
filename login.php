@@ -67,9 +67,9 @@
 
     <?php
     if(isset($_SESSION['ID']))
-      echo $_SESSION['ID'];
+      //echo $_SESSION['ID'];
     else
-      echo "You are not logged in";
+      //echo "You are not logged in";
     ?>
 
     <!-- Bootstrap core JavaScript
