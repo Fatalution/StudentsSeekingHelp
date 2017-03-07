@@ -2,6 +2,7 @@ body{
   background: #000000;
   background-image:url("../img/simplebackground.png");
   color: white;
+  background-repeat : no-repeat;
 }
 
 div.well{
