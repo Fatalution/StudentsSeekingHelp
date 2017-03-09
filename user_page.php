@@ -87,19 +87,31 @@ session_start();
     <script>
    $( document ).ready(function() {
    var id ='<?php echo $_SESSION['ID'];?>';
+   console.log(id);
+
+   });
+  </script>
+
+  <script>
+  	$( document ).ready(function() {
+  	//alert("Function is called!");
+  	var id ='<?php echo $_SESSION['ID'];?>';
+  	function giveHelpSearch(){
+   //console.log(id);
     $.ajax({
          type: 'post',
          url : 'check_get_help.php',
          data : {
            us_id : id,
          },
-         
-        });
-    
-   },10000);
+        })
+    console.log(id);
+	}
 
+	setInterval(giveHelpSearch,10000);
+   });
+  	//alert("Php ends");
   </script>
-
 </body>
 
 </html>
