@@ -87,9 +87,16 @@ session_start();
     <script>
    $( document ).ready(function() {
    var id ='<?php echo $_SESSION['ID'];?>';
-   console.log(id);
-
-   });
+    $.ajax({
+         type: 'post',
+         url : 'check_get_help.php',
+         data : {
+           us_id : id,
+         },
+         
+        });
+    
+   },10000);
 
   </script>
 
