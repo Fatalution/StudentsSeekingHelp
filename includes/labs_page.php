@@ -126,6 +126,6 @@ session_start();
 });
 
 
-  </script>
+   </script>
 </body>
 </html>
