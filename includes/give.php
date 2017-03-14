@@ -10,8 +10,8 @@ $userID = $_SESSION['ID'];
 echo "<script>console.log( 'Debug Objects: " . $labID . "' );</script>";
 echo "<script>console.log( 'Debug Objects: " . $userID. "' );</script>";
 // Insert the request in the database
-$sql = "INSERT INTO subscribed_user_labs (user_id, lab_id)
-        VALUES ('$userID', '$labID')";
+$sql = "INSERT INTO subscribed_user_labs (user_id, lab_id, status)
+        VALUES ('$userID', '$labID', 'not_active')";
 $result = mysqli_query($conn, $sql);
 echo "<script>console.log( 'Debug Objects: " . $result . "' );</script>";
 ?>

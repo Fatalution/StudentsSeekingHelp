@@ -22,7 +22,7 @@ session_start();
 
  <!-- javascript -->
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
   <!-- Latest compiled and minified JavaScript -->
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
@@ -83,32 +83,62 @@ session_start();
                 </div>
             </div>
 
-
-    <script>
-   $( document ).ready(function() {
-   var id ='<?php echo $_SESSION['ID'];?>';
-   console.log(id);
-
-   });
-  </script>
-
   <script>
   	$( document ).ready(function() {
   	//alert("Function is called!");
   	var id ='<?php echo $_SESSION['ID'];?>';
-  	function giveHelpSearch(){
-   //console.log(id);
-    $.ajax({
+    console.log("ID: " + id);
+
+	function helpSomeone() {
+
+       $.ajax({
          type: 'post',
-         url : 'check_get_help.php',
+         url : 'help_someone.php',
          data : {
            us_id : id,
          },
-        })
-    console.log(id);
-	}
+         success: function(response){
+         //console.log("The whole response: " + response);
+         $("body").append(response);
+         //$('#response').html(response);
+         //console.log("Successful");
+         
 
-	setInterval(giveHelpSearch,10000);
+        },
+         failure: function(message){
+         	alert("It failed");
+         }
+      })
+     }
+
+     function getNotifications() {
+ 
+       console.log("Search started");
+       $.ajax({
+         type: 'post',
+         url : 'get_notifications.php',
+         data : {
+           us_id : id,
+         },
+         success: function(response){
+         //console.log("The whole response: " + response);
+         $("body").append(response);
+         //$('#response').html(response);
+         //console.log("Successful");
+         
+
+        },
+         failure: function(message){
+         	alert("It failed");
+         }
+      })
+     }
+
+      //giveHelpSearch();
+      //getHelpSearch();
+	  setInterval(helpSomeone, 10000);
+	  setInterval(getNotifications, 10000);
+
    });
   	//alert("Php ends");
   </script>

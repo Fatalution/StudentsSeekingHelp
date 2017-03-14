@@ -71,7 +71,7 @@ if(filter_var($email, FILTER_VALIDATE_EMAIL) == FALSE)
 }
 
 // Check if it has the prefix of an UoM username
-if(strlen($email) <= 17 or substr($email, -17) != "@manchester.ac.uk")
+if(strlen($email) <= 25 or substr($email, -25) != "@student.manchester.ac.uk")
 {
   header("Location: ../signup.php?error=manchesteremail");
   exit(); 

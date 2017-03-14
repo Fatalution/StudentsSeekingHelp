@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 09, 2017 at 09:57 PM
+-- Generation Time: Mar 14, 2017 at 10:39 AM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 5.6.30
 
@@ -58,17 +58,16 @@ CREATE TABLE `help_requests` (
   `user_id` int(11) NOT NULL,
   `lab_id` int(11) NOT NULL,
   `date` date NOT NULL,
-  `helper_id` int(11) NOT NULL
+  `helper_id` int(11) NOT NULL,
+  `status` text NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `help_requests`
 --
 
-INSERT INTO `help_requests` (`id`, `user_id`, `lab_id`, `date`, `helper_id`) VALUES
-(3, 4, 1, '0000-00-00', 0),
-(4, 2, 4, '0000-00-00', 0),
-(5, 1, 3, '0000-00-00', 0);
+INSERT INTO `help_requests` (`id`, `user_id`, `lab_id`, `date`, `helper_id`, `status`) VALUES
+(5, 4, 1, '0000-00-00', 0, 'unresolved');
 
 -- --------------------------------------------------------
 
@@ -105,21 +104,9 @@ CREATE TABLE `subscribed_user_labs` (
   `id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
   `lab_id` int(11) NOT NULL,
-  `date` datetime NOT NULL
+  `date` datetime NOT NULL,
+  `status` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `subscribed_user_labs`
---
-
-INSERT INTO `subscribed_user_labs` (`id`, `user_id`, `lab_id`, `date`) VALUES
-(1, 4, 1, '0000-00-00 00:00:00'),
-(2, 4, 2, '0000-00-00 00:00:00'),
-(3, 4, 2, '0000-00-00 00:00:00'),
-(4, 4, 1, '0000-00-00 00:00:00'),
-(5, 4, 4, '0000-00-00 00:00:00'),
-(6, 8, 1, '0000-00-00 00:00:00'),
-(7, 4, 4, '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -146,7 +133,8 @@ INSERT INTO `user` (`ID`, `Email`, `Password`, `Admin`, `Course_type`, `Name`, `
 (5, 'andrej.andrej@manchester.ac.uk', '$2y$10$hNGAXQrgvZ7JO/gSw4k/vum4SlcKK5Yxk6NEliibjmnNtS93d/aiK', 0, 'Computer Sceince and Mathematics', 'Andrej ', 'Andrej'),
 (6, 'aa.aa@manchester.ac.uk', '$2y$10$kQ723MD2kHKBwTZWJ/VpLOzL69Wpxlb8RqCpTGa55yC2fV5sAUzgi', 0, 'Computer Sceince and Mathematics', 'aa', 'aa'),
 (7, 'jeremy.williams@manchester.ac.uk', '$2y$10$xXguVNRSHW.bBq7I8OUUueArfYvP/ODDEASZnmBVY1k30NifdacXW', 0, 'Computer Science and Business', 'jeremy', 'williams'),
-(8, 'tsvetan.mirkov@manchester.ac.uk', '$2y$10$FSOoVHOBjaM5ZLKt9fWbAOkOORSwUK5695rLSWAg8IlwEp80pc3DG', 0, 'Computer Science', 'Tsvetan', 'Mirkov');
+(8, 'tsvetan.mirkov@manchester.ac.uk', '$2y$10$FSOoVHOBjaM5ZLKt9fWbAOkOORSwUK5695rLSWAg8IlwEp80pc3DG', 0, 'Computer Science', 'Tsvetan', 'Mirkov'),
+(9, 'a@student.manchester.ac.uk', '$2y$10$CUPLgRTmhHWkjqtig8MFhev9PX5HqRwMGB/dUcUSdEKBzPFxBjIJG', 0, 'Computer Science', 'fd', 'df');
 
 --
 -- Indexes for dumped tables
@@ -205,12 +193,12 @@ ALTER TABLE `labs`
 -- AUTO_INCREMENT for table `subscribed_user_labs`
 --
 ALTER TABLE `subscribed_user_labs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
