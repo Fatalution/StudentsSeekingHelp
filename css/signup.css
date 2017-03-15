@@ -1,8 +1,13 @@
+html,
 body{
-  background: #000000;
-  background-image:url("../img/simplebackground.png");
-  color: white;
-  background-repeat: no-repeat;
+  height: 100%;
+  background: url("../img/backgroundSignup.png");
+  background-size: 100% 100%;
+}
+body {
+  color: #fff;
+  text-align: center;
+  text-shadow: 0 1px 3px rgba(0,0,0,.5);
 }
 
 div.well{
