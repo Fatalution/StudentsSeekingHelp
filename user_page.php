@@ -1,8 +1,8 @@
-<?php 
+<?php
 // Connect to the database
 include 'dbh.php';
 session_start();
-?> 
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -17,15 +17,15 @@ session_start();
 
     <title>user page</title>
 
-   <!-- Latest compiled and minified CSS -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/user_page.css">
+    <!-- javascript -->
 
- <!-- javascript -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-
-  <!-- Latest compiled and minified JavaScript -->
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -33,12 +33,12 @@ session_start();
     <div class ="header" style="padding-top:100px;">
         <div class ="row">
 
-           
+
 
             </div>
 
         </div>
-    </div>  
+    </div>
     <div class="container" style="padding-top:60px">
 
         <div class="row">
@@ -56,7 +56,7 @@ session_start();
                       //echo 1;
                       $sql = " SELECT * FROM courses WHERE ComputerScience = '1' ";
                       //echo 2;
-                      break; 
+                      break;
 
                       case "Computer Science and Mathematics":
                       $sql = " SELECT * FROM courses WHERE 'ComputerScienceAndMathematics'  = '1' ";
@@ -102,7 +102,7 @@ session_start();
          $("body").append(response);
          //$('#response').html(response);
          //console.log("Successful");
-         
+
 
         },
          failure: function(message){
@@ -112,7 +112,7 @@ session_start();
      }
 
      function getNotifications() {
- 
+
        console.log("Search started");
        $.ajax({
          type: 'post',
@@ -125,7 +125,7 @@ session_start();
          $("body").append(response);
          //$('#response').html(response);
          //console.log("Successful");
-         
+
 
         },
          failure: function(message){
