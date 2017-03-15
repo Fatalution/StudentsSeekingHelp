@@ -45,7 +45,6 @@ session_start();
   		 // For each lab
   		 while ($row = mysqli_fetch_assoc($result))
   		 {
-
       		 	$labID = $row['id'];
             ?>
             <div class = "well">
