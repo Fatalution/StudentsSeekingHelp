@@ -28,6 +28,7 @@ html,
 body {
   height: 100%;
   background-color: #333;
+  background: url("../img/backgroundIndex.png");
 }
 body {
   color: #fff;
@@ -52,7 +53,7 @@ body {
    background-size:cover;
    background-color: black;
 
-   
+
 }
 .cover-container {
   margin-right: auto;
@@ -67,7 +68,7 @@ body {
  p.leader
  {
   padding-top:30px;
-  
+
  }
 /*
  * Header
@@ -97,14 +98,14 @@ body {
   border-bottom-color: white;
   border-style: solid;
   color: #fff; /* IE8 proofing */
-  
+
   border-bottom: 2px solid transparent;
 }
 .masthead-nav > li > a:hover,
 .masthead-nav > li > a:focus {
   /*background-color: transparent;*/
   border-bottom-color: white;
-  
+
   border-bottom-color: rgba(255,255,255,.25);
 }
 .masthead-nav > .active > a,

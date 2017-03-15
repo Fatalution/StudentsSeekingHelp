@@ -54,7 +54,7 @@
               Don't have an account ? <br>
               Join the community:<br>
               <div class="form-group">
-              <a class="btn btn-def btn-block" href="signup.php">Sign up</a>
+                <button type = "submit" value ="Sign up" class="btn btn-def btn-block" href="signup.php">Sign up</button>
               </div>
             </form>
           </div>
