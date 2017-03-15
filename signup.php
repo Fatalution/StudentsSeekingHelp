@@ -55,7 +55,7 @@
   <div class="container">
     <div class="row">
       <div class="Absolute-Center is-Responsive">
-        <div id="logo-container"></div>
+        <div id="logo-container">&ltSSH&gt/Sign up</div>
         <div class="col-sm-12 col-md-10 col-md-offset-1">
           <form action="includes/signup.inc.php" method="POST" id="loginForm">
             <div class="form-group input-group">

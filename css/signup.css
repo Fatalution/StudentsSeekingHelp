@@ -28,5 +28,9 @@ div.well{
   margin-bottom: 10px;
   width:200px;
   height:30px;
-  background-image:url('../img/minilogo_signup.png');
+  background-color: transparent;
+  color: #18FA04;
+  font-family: monaco,Consolas,Lucida Console,monospace;
+  font-weight: bold;
+  text-align: center;
 }
