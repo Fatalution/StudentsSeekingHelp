@@ -37,7 +37,7 @@
     <div class="container">
       <div class="row">
         <div class="Absolute-Center is-Responsive">
-          <div id="logo-container"></div>
+          <div id="logo-container">&ltSSH&gt/Log in</div>
           <div class="col-sm-12 col-md-10 col-md-offset-1">
             <form action="includes/login.inc.php" method="POST" id="loginForm">
               <div class="form-group input-group">
@@ -54,7 +54,7 @@
               Don't have an account ? <br>
               Join the community:<br>
               <div class="form-group">
-                <button type = "submit" value ="Sign up" class="btn btn-def btn-block" href="signup.php">Sign up</button>
+                <a href="signup.php" class="btn btn-def btn-block">Sign up</a>
               </div>
             </form>
           </div>
