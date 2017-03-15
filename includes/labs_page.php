@@ -27,16 +27,128 @@ session_start();
 </head>
 
 <body>
+
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+                    Create list of courses on the left persistent
+   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+  <div class = "page-header">
+    <?php
+      // Obtain the name of the course
+      $course = $_GET['courseType'];
+      //$course = "COMP16121";
+      //echo $course;
+      echo "<h1 class = 'lead text-center'>" . "Labs and lectures for " . $course . "</h1> <br>";
+    ?>
+  </div>
+  <div class="container" style="padding-top:60px">
+
+      <div class="row">
+
+          <div class="col-md-3">
+            <div class="list-group">
+            <?php
+              $courseType = $_SESSION['Course_type'];
+              echo '<span>' . $courseType . '</span>';
+              ?>
+              <p class="lead">Your courses:</p>
+                <?php
+                  switch($courseType)
+                  {
+                    case "Computer Science":
+                    //echo 1;
+                    $sql = " SELECT * FROM courses WHERE ComputerScience = '1' ";
+                    //echo 2;
+                    break;
+
+                    case "Computer Science and Mathematics":
+                    $sql = " SELECT * FROM courses WHERE 'ComputerScienceAndMathematics'  = '1' ";
+                    break;
+
+                    case "Computer Science and Business":
+                    $sql = " SELECT * FROM courses WHERE 'ComputerScienceAndBusiness' = '1' ";
+                    break;
+
+                    case "Human Computer Interaction":
+                    $sql = " SELECT * FROM courses WHERE 'HumanComputerInteraction' = '1' ";
+                    break;
+                  }
+
+                  $result = mysqli_query($conn, $sql);
+                  while ($row = mysqli_fetch_assoc($result))
+                  {
+                    //$_SESSION['course'] = $row['Name'];
+                    $courseName = $row['Name'];
+                    //echo $courseName;
+                    echo "<a class='list-group-item' href='includes/labs_page.php?courseType=".$courseName."'>". $row['Name'] . "</a>";
+                  }
+                ?>
+              </div>
+          </div>
+
+<script>
+  $( document ).ready(function() {
+  //alert("Function is called!");
+  var id ='<?php echo $_SESSION['ID'];?>';
+  console.log("ID: " + id);
+
+function helpSomeone() {
+
+     $.ajax({
+       type: 'post',
+       url : 'help_someone.php',
+       data : {
+         us_id : id,
+       },
+       success: function(response){
+       //console.log("The whole response: " + response);
+       $("body").append(response);
+       //$('#response').html(response);
+       //console.log("Successful");
+
+
+      },
+       failure: function(message){
+        alert("It failed");
+       }
+    })
+   }
+
+   function getNotifications() {
+
+     console.log("Search started");
+     $.ajax({
+       type: 'post',
+       url : 'get_notifications.php',
+       data : {
+         us_id : id,
+       },
+       success: function(response){
+       //console.log("The whole response: " + response);
+       $("body").append(response);
+       //$('#response').html(response);
+       //console.log("Successful");
+
+
+      },
+       failure: function(message){
+        alert("It failed");
+       }
+    })
+   }
+
+    //giveHelpSearch();
+    //getHelpSearch();
+  setInterval(helpSomeone, 10000);
+  setInterval(getNotifications, 10000);
+
+ });
+  //alert("Php ends");
+</script>
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+                Create list of labs for selected course
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
   <div class = "container">
-    <div class = "page-header">
-      <?php
-        // Obtain the name of the course
-        $course = $_GET['courseType'];
-        //$course = "COMP16121";
-        //echo $course;
-        echo "<h1 class = 'lead text-center'>" . "Your labs and lectures for " . $course . "</h1> <br>";
-      ?>
-    </div>
     <?php
        // Get all the labs from the course
        $sql = " SELECT * FROM labs WHERE course_id = '$course' ";
@@ -47,7 +159,7 @@ session_start();
   		 {
       		 	$labID = $row['id'];
             ?>
-            <div class = "well">
+            <div>
               <p id='response'></p>
               <p class = 'lead'>  Topic :  <?php echo $row['topic']; ?> </p>
               <p> Date: <?php echo $row['date'] ?></p>
