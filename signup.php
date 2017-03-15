@@ -99,7 +99,7 @@
           Already a member?
             Login here:
             <div>
-              <button type="button" class="btn btn-def btn-block"><a href="login.php">Log in</a></button>
+              <a href="login.php" class="btn btn-def btn-block" >Log in</a>
             </div>
 
         </div>

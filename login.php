@@ -49,12 +49,14 @@
                 <input class="form-control" type="password" name='password' placeholder="password"/>
               </div>
               <div class="form-group">
+                <!-- The login button -->
                 <button type="submit" value="Login" class="btn btn-def btn-block">Login</button>
               </div>
               Don't have an account ? <br>
               Join the community:<br>
               <div class="form-group">
-                <button class="btn btn-def btn-block" href="signup.php">Sign up</button>
+                <!-- Signup button -->
+                <a href="signup.php" class="btn btn-def btn-block" >Sign up</a>
               </div>
             </form>
           </div>
