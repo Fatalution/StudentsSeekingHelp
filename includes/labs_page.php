@@ -55,8 +55,8 @@ session_start();
               <p> Description: <?php echo $row['lab_description'] ?> </p>
               <form method = 'POST'>
                 <div class = 'btn-group' id = 'buttonGroup'>
-                  <button name = 'Get Help' id="get" class="getHelp1" type ="button" class ='btn btn-primary' value =' <?php echo $labID;?>' > Get Help </button>
-                  <button name = 'Give Help' id="give" class="giveHelp" type = 'button'  class = 'btn btn-primary' value =' <?php echo $labID;?>'> Give Help </button>
+                  <button name = 'Get Help' id="get" class="editedGetHelp" type ="button" class ='btn btn-primary' value =' <?php echo $labID;?>' > Get Help </button>
+                  <button name = 'Give Help' id="give" class="editedGiveHelp" type = 'button'  class = 'btn btn-primary' value =' <?php echo $labID;?>'> Give Help </button>
                 </div>
               </form>
             </div>
