@@ -44,12 +44,13 @@ session_start();
         <div class="row">
 
             <div class="col-md-3">
-                <p class="lead">Your courses</p>
-                <div class="list-group">
+              <div class="list-group">
+              <?php
+                $courseType = $_SESSION['Course_type'];
+                echo '<span>' . $courseType . '</span>';
+                ?>
+                <p class="lead">Your courses:</p>
                   <?php
-                    $courseType = $_SESSION['Course_type'];
-
-                    echo $courseType;
                     switch($courseType)
                     {
                       case "Computer Science":
