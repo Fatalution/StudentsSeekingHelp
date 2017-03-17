@@ -46,11 +46,12 @@ else if(empty($surname))
 }
 
 // Check if the user confirmed the password correctly
-else if($password != $confirmPassword)
+if($password != $confirmPassword)
 {
   header("Location: ../signup.php?error=passmatch");
   exit();
 }
+
 
 // Check if the username already exists
 $sql = "SELECT Email FROM user WHERE Email = '$email'";
@@ -70,6 +71,7 @@ if(filter_var($email, FILTER_VALIDATE_EMAIL) == FALSE)
   exit();
 }
 
+
 // Check if it has the prefix of an UoM username
 if(strlen($email) <= 25 or substr($email, -25) != "@student.manchester.ac.uk")
 {
@@ -82,12 +84,14 @@ echo strtolower($name);
 echo strtolower($surname);
 echo $username;
 echo strpos($username, strtolower($name));
+
 // Check if the name and surname are found in the username
 if(strpos($username, strtolower($name)) !== True or strpos($username, strtolower($surname)) !== True)
 {
   header("Location: ../signup.php?error=manchesterusername");
   exit(); 
-} */ 
+} 
+*/ 
 
 else
 {
@@ -95,7 +99,7 @@ else
   $sql = "INSERT INTO user (Email, Password, Admin, Course_type, Name, Surname)
           VALUES ('$email', '$encryptedPassword', 0, '$programme', '$name', '$surname')";
   $result = mysqli_query($conn, $sql);
-}
+} 
 
 // Go back to the main page
-header("Location: ../login.php");
+header("Location: ../login.php"); 
