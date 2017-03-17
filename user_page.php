@@ -90,6 +90,28 @@ session_start();
   	var id ='<?php echo $_SESSION['ID'];?>';
     console.log("ID: " + id);
 
+  function resetLoadedRequests() {
+
+       $.ajax({
+         type: 'post',
+         url : 'reset_loaded.php',
+         data : {
+           us_id : id,
+         },
+         success: function(response){
+         //console.log("The whole response: " + response);
+         $("body").append(response);
+         //$('#response').html(response);
+         //console.log("Successful");
+
+
+        },
+         failure: function(message){
+          alert("It failed");
+         }
+      })
+     }
+
 	function helpSomeone() {
 
        $.ajax({
@@ -137,6 +159,8 @@ session_start();
 
       //giveHelpSearch();
       //getHelpSearch();
+
+    resetLoadedRequests();
 	  setInterval(helpSomeone, 10000);
 	  setInterval(getNotifications, 10000);
 
