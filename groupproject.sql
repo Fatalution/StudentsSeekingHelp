@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 14, 2017 at 10:39 AM
+-- Generation Time: Mar 18, 2017 at 02:21 AM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 5.6.30
 
@@ -67,7 +67,10 @@ CREATE TABLE `help_requests` (
 --
 
 INSERT INTO `help_requests` (`id`, `user_id`, `lab_id`, `date`, `helper_id`, `status`) VALUES
-(5, 4, 1, '0000-00-00', 0, 'unresolved');
+(8, 4, 4, '0000-00-00', 5, 'pending_loaded'),
+(7, 4, 2, '0000-00-00', 7, 'pending_loaded'),
+(5, 4, 1, '0000-00-00', 4, 'pending_loaded'),
+(6, 4, 1, '0000-00-00', 0, 'unresolved');
 
 -- --------------------------------------------------------
 
@@ -134,7 +137,9 @@ INSERT INTO `user` (`ID`, `Email`, `Password`, `Admin`, `Course_type`, `Name`, `
 (6, 'aa.aa@manchester.ac.uk', '$2y$10$kQ723MD2kHKBwTZWJ/VpLOzL69Wpxlb8RqCpTGa55yC2fV5sAUzgi', 0, 'Computer Sceince and Mathematics', 'aa', 'aa'),
 (7, 'jeremy.williams@manchester.ac.uk', '$2y$10$xXguVNRSHW.bBq7I8OUUueArfYvP/ODDEASZnmBVY1k30NifdacXW', 0, 'Computer Science and Business', 'jeremy', 'williams'),
 (8, 'tsvetan.mirkov@manchester.ac.uk', '$2y$10$FSOoVHOBjaM5ZLKt9fWbAOkOORSwUK5695rLSWAg8IlwEp80pc3DG', 0, 'Computer Science', 'Tsvetan', 'Mirkov'),
-(9, 'a@student.manchester.ac.uk', '$2y$10$CUPLgRTmhHWkjqtig8MFhev9PX5HqRwMGB/dUcUSdEKBzPFxBjIJG', 0, 'Computer Science', 'fd', 'df');
+(9, 'a@student.manchester.ac.uk', '$2y$10$CUPLgRTmhHWkjqtig8MFhev9PX5HqRwMGB/dUcUSdEKBzPFxBjIJG', 0, 'Computer Science', 'fd', 'df'),
+(10, 'a.b@student.manchester.ac.uk', '$2y$10$.7.ltLT8eQoS2cBNP9Lp1O1dn95f1NCq3EMytZfCvSOXTqmyXJEE.', 0, 'Computer Sceince and Mathematics', 'a', 'b'),
+(11, 'simon.paul@student.manchester.ac.uk', '$2y$10$ACN4.XXZEFMY/mcwGX8/H.AoiHoYvFKIaBaM5wcmY1hDyUso1cBD.', 0, 'Computer Science', 'Simon', 'Paul');
 
 --
 -- Indexes for dumped tables
@@ -183,7 +188,7 @@ ALTER TABLE `courses`
 -- AUTO_INCREMENT for table `help_requests`
 --
 ALTER TABLE `help_requests`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT for table `labs`
 --
@@ -193,12 +198,12 @@ ALTER TABLE `labs`
 -- AUTO_INCREMENT for table `subscribed_user_labs`
 --
 ALTER TABLE `subscribed_user_labs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
