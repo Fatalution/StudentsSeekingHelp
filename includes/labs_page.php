@@ -111,9 +111,7 @@ session_start();
       console.log(buttonId);
       getHelp(id);
       alert("Help requested successfully");
-        $("#"+buttonId ).fadeOut( "slow", function() {
-    // Animation complete.
-  });
+      document.getElementById(buttonId).style.display = "none";
 
       /*
       document.getElementById("get").disabled = true;
@@ -129,9 +127,8 @@ session_start();
       giveHelp(id);
 
       alert("You requested to give help successfully");
-      $("#"+buttonId ).fadeOut( "slow", function() {
-    // Animation complete.
-  });
+     document.getElementById(buttonId).style.display = "none";
+ 
       /*
       document.getElementById("get").disabled = true;
       document.getElementById("give").disabled = true; */
