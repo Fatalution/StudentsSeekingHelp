@@ -84,6 +84,11 @@ session_start();
                 </div>
             </div>
 
+       <p> Name: <?php echo $_SESSION['Name'] ; ?> </p>
+       <p> Surname: <?php echo $_SESSION['Surname']; ?> </p>
+       <p> Course: <?php echo $_SESSION['Course_type'] ?> </p>
+       <p> Rating </p>
+
   <script>
   	$( document ).ready(function() {
   	//alert("Function is called!");
