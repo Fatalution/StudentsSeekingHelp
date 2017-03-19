@@ -54,8 +54,8 @@ session_start();
               <p> Description: <?php echo $row['lab_description'] ?> </p>
               <form method = 'POST'>
                 <div class = 'btn-group' id = 'buttonGroup'>
-                  <button name = 'Get Help' id="get" class="editedGetHelp" type ="button" class ='btn btn-primary' value =' <?php echo $labID;?>' > Get Help </button>
-                  <button name = 'Give Help' id="give" class="editedGiveHelp" type = 'button'  class = 'btn btn-primary' value =' <?php echo $labID;?>'> Give Help </button>
+                  <button name = 'Get Help'id="<?php echo "get".$labID;?>" class="editedGetHelp"  type ="button" class ='btn btn-primary' value =' <?php echo $labID;?>' > Get Help </button>
+                  <button name = 'Give Help' id="<?php echo "give".$labID;?>" class="editedGiveHelp" type = 'button'  class = 'btn btn-primary' value =' <?php echo $labID;?>'> Give Help </button>
                 </div>
               </form>
             </div>
@@ -96,18 +96,24 @@ session_start();
           $('#response').html(response);
         }
       })
+
      }
 
 
   // Action listener for the button
   $("button").click(function(){
     var id = $(this).val();
-
     // If the user pressed the get help button
-    if (($(this)).attr("id")== "get")
+    if (($(this)).attr("class")== "editedGetHelp")
     {
+      var buttonId = "get"+id;
+      buttonId = buttonId.replace(/\s+/g, '');
+      console.log(buttonId);
       getHelp(id);
       alert("Help requested successfully");
+        $("#"+buttonId ).fadeOut( "slow", function() {
+    // Animation complete.
+  });
 
       /*
       document.getElementById("get").disabled = true;
@@ -115,11 +121,17 @@ session_start();
     }
 
     // If the user pressed the give help button
-    else if (($(this)).attr("id")== "give")
+    else if (($(this)).attr("class")== "editedGiveHelp")
     {
+      var buttonId ="give"+id;
+      buttonId = buttonId.replace(/\s+/g, '');
+      console.log(buttonId);
       giveHelp(id);
-      alert("You requested to give help successfully");
 
+      alert("You requested to give help successfully");
+      $("#"+buttonId ).fadeOut( "slow", function() {
+    // Animation complete.
+  });
       /*
       document.getElementById("get").disabled = true;
       document.getElementById("give").disabled = true; */
