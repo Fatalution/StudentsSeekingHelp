@@ -23,3 +23,17 @@ body {
 span {
   font-size: 30px
 }
+
+.menu {
+    width: 30%;
+    height: 100px;
+    float: left;
+}
+
+.userinfo {
+    font-size: 40px;
+    width: 70%;
+    height: 100px;
+    float: right;
+    text-align: center;
+}

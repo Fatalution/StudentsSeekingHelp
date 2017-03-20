@@ -39,6 +39,7 @@ session_start();
 
         </div>
     </div>
+
     <div class="container" style="padding-top:60px">
 
         <div class="row">
@@ -84,11 +85,12 @@ session_start();
                 </div>
             </div>
 
-       <p> Name: <?php echo $_SESSION['Name'] ; ?> </p>
-       <p> Surname: <?php echo $_SESSION['Surname']; ?> </p>
-       <p> Course: <?php echo $_SESSION['Course_type'] ?> </p>
-       <p> Rating </p>
+      <!-- User information -->
 
+       <div class="userinfo">
+         <p> Hello, <?php echo $_SESSION['Name'] ." " . $_SESSION['Surname']; ?> </p>
+         <p> Rating: John Latham's Pinky </p>
+       </div>
   <script>
   	$( document ).ready(function() {
   	//alert("Function is called!");
