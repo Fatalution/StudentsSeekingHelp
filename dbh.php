@@ -1,10 +1,14 @@
 <?php
 
-//Connect to the local database 
-$conn = mysqli_connect('localhost', 'root', '', 'groupproject');
+//Connect to the local database
+$dbname = 'SSH';
+$conn = mysqli_connect('127.0.0.1', 'root', 'root', $dbname, '8889');
 
 // If connection failed, display the connection error
 if(!$conn)
 {
-	die("Failed to connect: " . mysqli_connect_error());
+	echo "SHITFUCK:" . $dbname;
+	die("Connection failed: " . mysqli_connect_error());
 }
+
+?>
