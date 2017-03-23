@@ -50,7 +50,7 @@ session_start();
                 $courseType = $_SESSION['Course_type'];
                 echo '<span>' . $courseType . '</span>';
                 ?>
-                <p class="lead">Your courses:</p>
+                <p class="lead">Your course modules:</p>
                   <?php
                     switch($courseType)
                     {
