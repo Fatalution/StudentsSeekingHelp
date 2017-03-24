@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 24, 2017 at 11:46 AM
+-- Generation Time: Mar 24, 2017 at 04:56 PM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 5.6.30
 
@@ -17,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `groupproject`
+-- Database: `ssh`
 --
 
 -- --------------------------------------------------------
@@ -137,6 +137,19 @@ INSERT INTO `labs` (`id`, `course_id`, `course_name`, `lab_description`, `week`,
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `messages`
+--
+
+CREATE TABLE `messages` (
+  `request_id` int(11) NOT NULL,
+  `message_id` int(11) NOT NULL,
+  `user_id` varchar(255) NOT NULL,
+  `message` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `subscribed_user_labs`
 --
 
@@ -215,6 +228,12 @@ ALTER TABLE `labs`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `messages`
+--
+ALTER TABLE `messages`
+  ADD PRIMARY KEY (`message_id`);
+
+--
 -- Indexes for table `subscribed_user_labs`
 --
 ALTER TABLE `subscribed_user_labs`
@@ -250,6 +269,11 @@ ALTER TABLE `help_requests`
 --
 ALTER TABLE `labs`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+--
+-- AUTO_INCREMENT for table `messages`
+--
+ALTER TABLE `messages`
+  MODIFY `message_id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `subscribed_user_labs`
 --
