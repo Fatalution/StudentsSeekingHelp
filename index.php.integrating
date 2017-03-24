@@ -1,5 +1,5 @@
 <?php
-$userID = $_POST['us_id']
+@$user = $_POST['user_id']
 ?>
 <html>
 <head>
@@ -31,6 +31,7 @@ while($fetch = $query->fetch(PDO::FETCH_ASSOC))
 
 	echo "<li class='cm'><b>".ucwords($name)."</b> - ".$message."</li>";
 }
+// code modelled on Codelyft's (https://www.youtube.com/channel/UCTezwNx534vU3-OBA9PfKfg) tutorial
 ?>
 	</div>
 	<div class='chatBottom'>
@@ -42,5 +43,3 @@ while($fetch = $query->fetch(PDO::FETCH_ASSOC))
 </div>
 </body>
 </html>
-
-// code modelled on Codelyft's (https://www.youtube.com/channel/UCTezwNx534vU3-OBA9PfKfg) tutorial
