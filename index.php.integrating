@@ -27,10 +27,9 @@ $query->execute();
 while($fetch = $query->fetch(PDO::FETCH_ASSOC))
 {
 	@$message = $fetch['message'];
-
 	echo "<li class='cm'><b>".ucwords($user)."</b> - ".$message."</li>";
 }
-// code modelled on Codelyft's (https://www.youtube.com/channel/UCTezwNx534vU3-OBA9PfKfg) tutorial
+// 
 ?>
 	</div>
 	<div class='chatBottom'>
@@ -42,3 +41,5 @@ while($fetch = $query->fetch(PDO::FETCH_ASSOC))
 </div>
 </body>
 </html>
+
+<!––code modelled on Codelyft's (https://www.youtube.com/channel/UCTezwNx534vU3-OBA9PfKfg) tutorial--!>
