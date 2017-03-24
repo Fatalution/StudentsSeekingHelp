@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 24, 2017 at 05:08 AM
+-- Generation Time: Mar 24, 2017 at 11:46 AM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 5.6.30
 
@@ -39,7 +39,8 @@ CREATE TABLE `chat` (
 
 INSERT INTO `chat` (`id`, `request_id`, `user1_id`, `user2_id`) VALUES
 (3, 27, 0, 4),
-(4, 28, 0, 0);
+(4, 28, 0, 0),
+(5, 28, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -89,7 +90,8 @@ CREATE TABLE `help_requests` (
 
 INSERT INTO `help_requests` (`id`, `user_id`, `lab_id`, `date`, `helper_id`, `status`) VALUES
 (27, 20, 1, '2017-03-10', 4, 'pending'),
-(28, 4, 1, '0000-00-00', 0, 'unresolved');
+(28, 4, 1, '0000-00-00', 0, 'unresolved'),
+(29, 4, 1, '0000-00-00', 0, 'unresolved');
 
 -- --------------------------------------------------------
 
@@ -152,7 +154,7 @@ CREATE TABLE `subscribed_user_labs` (
 --
 
 INSERT INTO `subscribed_user_labs` (`id`, `user_id`, `lab_id`, `date`, `status`, `request_id`) VALUES
-(11, 4, 1, '0000-00-00 00:00:00', 'active_loaded', 27);
+(11, 4, 1, '0000-00-00 00:00:00', 'active', 27);
 
 -- --------------------------------------------------------
 
@@ -232,7 +234,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `chat`
 --
 ALTER TABLE `chat`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `courses`
 --
@@ -242,7 +244,7 @@ ALTER TABLE `courses`
 -- AUTO_INCREMENT for table `help_requests`
 --
 ALTER TABLE `help_requests`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 --
 -- AUTO_INCREMENT for table `labs`
 --
