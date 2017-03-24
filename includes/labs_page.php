@@ -50,7 +50,7 @@ session_start();
             <div class = "well">
               <p id='response'></p>
               <p class = 'lead'>  Topic :  <?php echo $row['topic']; ?> </p>
-              <p> Date: <?php echo $row['date'] ?></p>
+              <p> Week: <?php echo $row['week'] ?></p>
               <p> Description: <?php echo $row['lab_description'] ?> </p>
               <form method = 'POST'>
                 <div class = 'btn-group' id = 'buttonGroup'>

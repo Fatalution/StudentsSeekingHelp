@@ -20,6 +20,7 @@ while($row = mysqli_fetch_assoc($result))
 	$lab_id = $row['lab_id'];
 	$us_id = $row['user_id'];
   $subscribedLabId = $row['id'];
+
   echo '<script> console.log("NEW SUBSCRIED LAB!!"); </script>';
   echo '<script> var labID = ' .$lab_id. '</script>';
   echo '<script> var usID = ' .$us_id. '</script>';
@@ -38,11 +39,11 @@ while($row = mysqli_fetch_assoc($result))
       echo '<script> console.log("Helpee found !!") </script>';
       $user_to_update = $row2['user_id'];
       $lab = $row2['lab_id'];
-      ?> 
+      /*?> 
       <p> You can give help !! </p>
       <p> Helpee: <?php echo $user_to_update ?> </p>
       <p> Lab: <?php echo $lab ?> </p>
-      <?php
+      <?php */
 
       echo '<script> var userToUpdate = ' . $user_to_update . '</script>';
       echo '<script> console.log("Helpee id : " + userToUpdate); </script>';
