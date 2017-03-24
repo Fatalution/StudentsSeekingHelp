@@ -53,7 +53,7 @@ CREATE TABLE `courses` (
   `Name` varchar(50) NOT NULL,
   `Description` text NOT NULL,
   `ComputerScience` tinyint(1) NOT NULL,
-  `ComputerSceinceAndMathematics` tinyint(1) NOT NULL,
+  `ComputerScienceAndMathematics` tinyint(1) NOT NULL,
   `ComputerScienceAndBusiness` tinyint(1) NOT NULL,
   `HumanComputerInteraction` tinyint(1) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
