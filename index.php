@@ -42,3 +42,5 @@ while($fetch = $query->fetch(PDO::FETCH_ASSOC))
 </div>
 </body>
 </html>
+
+// code modelled on Codelyft's (https://www.youtube.com/channel/UCTezwNx534vU3-OBA9PfKfg) tutorial
