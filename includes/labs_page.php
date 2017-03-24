@@ -7,7 +7,7 @@ session_start();
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Your lab page</title>
+  <title>Lab page</title>
   <meta charset = "utf-8">
   <meta name = "viewport" content = "width = device-width, initial-scale = 1">
 
@@ -34,7 +34,7 @@ session_start();
         $course = $_GET['courseType'];
         //$course = "COMP16121";
         //echo $course;
-        echo "<h1 class = 'lead text-center'>" . "Your labs and lectures for " . $course . "</h1> <br>";
+        echo "<h1 class = 'lead text-center'>" . "Labs and lectures for " . $course . "</h1> <br>";
       ?>
     </div>
     <?php
@@ -128,7 +128,7 @@ session_start();
 
       alert("You requested to give help successfully");
      document.getElementById(buttonId).style.display = "none";
- 
+
       /*
       document.getElementById("get").disabled = true;
       document.getElementById("give").disabled = true; */

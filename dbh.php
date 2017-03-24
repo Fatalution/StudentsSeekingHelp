@@ -1,6 +1,6 @@
 <?php
 
-//Connect to the local database 
+//Connect to the local database
 $conn = mysqli_connect('localhost', 'root', '', 'groupproject');
 
 // If connection failed, display the connection error
