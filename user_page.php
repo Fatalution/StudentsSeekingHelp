@@ -119,6 +119,29 @@ session_start();
       })
      }
 
+  function resetLoadedHelperRequests() {
+
+       $.ajax({
+         type: 'post',
+         url : 'reset_loaded_helper.php',
+         data : {
+           us_id : id,
+         },
+         success: function(response){
+         //console.log("The whole response: " + response);
+         $("body").append(response);
+         //$('#response').html(response);
+         //console.log("Successful");
+
+
+        },
+         failure: function(message){
+          alert("It failed");
+         }
+      })
+     }
+
+
 	function helpSomeone() {
 
        $.ajax({
@@ -164,12 +187,39 @@ session_start();
       })
      }
 
+     function getHelperNotifications() {
+
+       console.log("Search started");
+       $.ajax({
+         type: 'post',
+         url : 'getHelperNotifications.php',
+         data : {
+           us_id : id,
+         },
+         success: function(response){
+         //console.log("The whole response: " + response);
+         $("body").append(response);
+         //$('#response').html(response);
+         //console.log("Successful");
+
+
+        },
+         failure: function(message){
+          alert("It failed");
+         }
+      })
+     }
+
       //giveHelpSearch();
       //getHelpSearch();
 
     resetLoadedRequests();
+    resetLoadedHelperRequests();
 	  setInterval(helpSomeone, 10000);
 	  setInterval(getNotifications, 10000);
+    setInterval(getHelperNotifications, 10000);
+
+
 
    });
   	//alert("Php ends");
