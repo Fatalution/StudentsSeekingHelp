@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 18, 2017 at 02:21 AM
+-- Generation Time: Mar 24, 2017 at 05:08 AM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 5.6.30
 
@@ -19,6 +19,27 @@ SET time_zone = "+00:00";
 --
 -- Database: `groupproject`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `chat`
+--
+
+CREATE TABLE `chat` (
+  `id` int(11) NOT NULL,
+  `request_id` int(11) NOT NULL,
+  `user1_id` int(11) NOT NULL,
+  `user2_id` int(11) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `chat`
+--
+
+INSERT INTO `chat` (`id`, `request_id`, `user1_id`, `user2_id`) VALUES
+(3, 27, 0, 4),
+(4, 28, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -67,10 +88,8 @@ CREATE TABLE `help_requests` (
 --
 
 INSERT INTO `help_requests` (`id`, `user_id`, `lab_id`, `date`, `helper_id`, `status`) VALUES
-(8, 4, 4, '0000-00-00', 5, 'pending_loaded'),
-(7, 4, 2, '0000-00-00', 7, 'pending_loaded'),
-(5, 4, 1, '0000-00-00', 4, 'pending_loaded'),
-(6, 4, 1, '0000-00-00', 0, 'unresolved');
+(27, 20, 1, '2017-03-10', 4, 'pending'),
+(28, 4, 1, '0000-00-00', 0, 'unresolved');
 
 -- --------------------------------------------------------
 
@@ -83,7 +102,7 @@ CREATE TABLE `labs` (
   `course_id` text NOT NULL,
   `course_name` varchar(100) NOT NULL,
   `lab_description` text NOT NULL,
-  `date` date NOT NULL,
+  `week` int(11) NOT NULL,
   `topic` text NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
@@ -91,11 +110,27 @@ CREATE TABLE `labs` (
 -- Dumping data for table `labs`
 --
 
-INSERT INTO `labs` (`id`, `course_id`, `course_name`, `lab_description`, `date`, `topic`) VALUES
-(1, 'COMP16121', 'Java', 'First lab', '2017-03-22', 'Introduction I'),
-(2, 'COMP16121', 'Java', 'Second lab', '2017-03-15', 'Introduction 2'),
-(3, 'COMP12111', 'Engineering', 'fsd', '0000-00-00', ''),
-(4, 'COMP16121', 'Java', 'Third lab', '0000-00-00', 'Basic operators');
+INSERT INTO `labs` (`id`, `course_id`, `course_name`, `lab_description`, `week`, `topic`) VALUES
+(1, 'COMP16121', 'Object Oriented Programming with Java 1', 'First lab', 2, 'Introduction '),
+(2, 'COMP16121', 'Object Oriented Programming with Java 1', 'Second lab', 3, 'Sequential Execution and Program Errors'),
+(3, 'COMP12111', 'Object Oriented Programming with Java 1', 'Third lab', 4, 'Conditional Execution'),
+(4, 'COMP16121', 'Object Oriented Programming with Java 1', 'Fourth lab', 5, 'Repeated Execution'),
+(5, 'COMP16121', 'Object Oriented Programming with Java 1', 'Fifth lab', 7, 'Separate Methods and Logical Operators'),
+(6, 'COMP16121', 'Object Oriented Programming with Java 1', 'Sixth lab', 8, 'Separate Classes'),
+(7, 'COMP16121', 'Object Oriented Programming with Java 1', 'Seventh lab', 9, 'Object Oriented Design'),
+(8, 'COMP16121', 'Object Oriented Programming with Java 1', 'Eighth lab', 10, 'Graphical User Interfaces'),
+(9, 'COMP16121', 'Object Oriented Programming with Java 1', 'Ninth lab', 11, 'Graphical User Interfaces(II)'),
+(10, 'COMP16121', 'Object Oriented Programming with Java 1', 'Tenth lab', 12, 'Arrays'),
+(11, 'COMP15111', 'Fundamentals of Computer Architecture', 'First lab', 2, 'An Introduction to KMD'),
+(12, 'COMP15111', 'Fundamentals of Computer Architecture', 'Second lab', 4, 'Control Structures'),
+(13, 'COMP15111', 'Fundamentals of Computer Architecture', 'Third lab', 7, 'Addressing'),
+(14, 'COMP15111', 'Fundamentals of Computer Architecture', 'Fourth lab', 9, 'Methods and (more) Control Structures'),
+(15, 'COMP15111', 'Fundamentals of Computer Architecture', 'Fifth lab', 11, 'A Simple Virtual Machine'),
+(16, 'COMP12111', 'Fundamentals of Computer Engineering', 'First lab', 2, 'Binary Addition'),
+(17, 'COMP12111', 'Fundamentals of Computer Engineering', 'Second lab', 4, 'The Seven Segment Decoder'),
+(18, 'COMP12111', 'Fundamentals of Computer Engineering', 'Third lab', 7, 'Finite State Machines and Counters'),
+(19, 'COMP12111', 'Fundamentals of Computer Engineering', 'Fourth lab', 9, 'MU0 - A Microprocessor System'),
+(20, 'COMP12111', 'Fundamentals of Computer Engineering', 'Fifth lab', 11, 'Programming MU0');
 
 -- --------------------------------------------------------
 
@@ -108,8 +143,16 @@ CREATE TABLE `subscribed_user_labs` (
   `user_id` int(11) NOT NULL,
   `lab_id` int(11) NOT NULL,
   `date` datetime NOT NULL,
-  `status` text NOT NULL
+  `status` text NOT NULL,
+  `request_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `subscribed_user_labs`
+--
+
+INSERT INTO `subscribed_user_labs` (`id`, `user_id`, `lab_id`, `date`, `status`, `request_id`) VALUES
+(11, 4, 1, '0000-00-00 00:00:00', 'active_loaded', 27);
 
 -- --------------------------------------------------------
 
@@ -146,6 +189,12 @@ INSERT INTO `user` (`ID`, `Email`, `Password`, `Admin`, `Course_type`, `Name`, `
 --
 
 --
+-- Indexes for table `chat`
+--
+ALTER TABLE `chat`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `courses`
 --
 ALTER TABLE `courses`
@@ -180,6 +229,11 @@ ALTER TABLE `user`
 --
 
 --
+-- AUTO_INCREMENT for table `chat`
+--
+ALTER TABLE `chat`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+--
 -- AUTO_INCREMENT for table `courses`
 --
 ALTER TABLE `courses`
@@ -188,17 +242,17 @@ ALTER TABLE `courses`
 -- AUTO_INCREMENT for table `help_requests`
 --
 ALTER TABLE `help_requests`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 --
 -- AUTO_INCREMENT for table `labs`
 --
 ALTER TABLE `labs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 --
 -- AUTO_INCREMENT for table `subscribed_user_labs`
 --
 ALTER TABLE `subscribed_user_labs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 --
 -- AUTO_INCREMENT for table `user`
 --

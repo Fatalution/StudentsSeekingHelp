@@ -210,6 +210,30 @@ session_start();
       })
      }
 
+     function chatConfirmation1(request_id) {
+       console.log("user accepted. now lets update the table");
+       var user = 1;
+       $.ajax({
+        type: 'post',
+        url : 'includes/chatConfirm.php',
+        data : {
+        us_id : id,
+        user_type : user,
+        requestID : request_id,
+       },
+         success: function(response){
+         //console.log("The whole response: " + response);
+         $("body").append(response);
+         //$('#response').html(response);
+         //console.log("Successful");
+        },
+         failure: function(message){
+          alert("It failed");
+         }
+      })
+    }
+
+
       //giveHelpSearch();
       //getHelpSearch();
 

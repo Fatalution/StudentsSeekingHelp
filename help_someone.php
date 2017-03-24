@@ -39,6 +39,7 @@ while($row = mysqli_fetch_assoc($result))
       echo '<script> console.log("Helpee found !!") </script>';
       $user_to_update = $row2['user_id'];
       $lab = $row2['lab_id'];
+      $request_id = $row2['id'];
       /*?> 
       <p> You can give help !! </p>
       <p> Helpee: <?php echo $user_to_update ?> </p>
@@ -50,7 +51,7 @@ while($row = mysqli_fetch_assoc($result))
       $sql3 = "UPDATE help_requests SET helper_id = '$us_id', status = 'pending' WHERE user_id = '$user_to_update' and lab_id ='$lab'";
       $result3 = mysqli_query($conn, $sql3);
 
-      $sql3 = "UPDATE subscribed_user_labs SET status = 'active' WHERE id = '$subscribedLabId'";
+      $sql3 = "UPDATE subscribed_user_labs SET status = 'active', request_id = '$request_id' WHERE id = '$subscribedLabId'";
       $result3 = mysqli_query($conn, $sql3);
       break;
     }
