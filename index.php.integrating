@@ -26,10 +26,9 @@ $query->execute();
 
 while($fetch = $query->fetch(PDO::FETCH_ASSOC))
 {
-	@$name = $fetch['user_id'];
 	@$message = $fetch['message'];
 
-	echo "<li class='cm'><b>".ucwords($name)."</b> - ".$message."</li>";
+	echo "<li class='cm'><b>".ucwords($user)."</b> - ".$message."</li>";
 }
 // code modelled on Codelyft's (https://www.youtube.com/channel/UCTezwNx534vU3-OBA9PfKfg) tutorial
 ?>
